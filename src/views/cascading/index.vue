@@ -1,5 +1,5 @@
 <template>
-  <div class="cascading">
+  <div class="app-container cascading">
     <el-select v-model="i" placeholder="请选择省份">
       <el-option
         v-for="(item,index) of provinces"
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       i: 0,
       j: 0,
@@ -102,16 +102,16 @@ export default {
   },
   computed: {
     // 省份 ID
-    provinceId: function () {
+    provinceId: function() {
       return this.provinces[this.i].value
     },
     // 选择城市
-    cityId: function () {
+    cityId: function() {
       return this.cities[this.i][this.j].value
     }
   },
   watch: {
-    i () { this.j = 0 }
+    i() { this.j = 0 }
   }
 }
 </script>
