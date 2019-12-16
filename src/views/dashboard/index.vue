@@ -1,18 +1,29 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <UploadExcel :on-success="handleSuccess" :before-upload="beforeUpload" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import UploadExcel from '@/components/UploadExcel/index'
 
 export default {
   name: 'Dashboard',
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    UploadExcel
+  },
   computed: {
-    ...mapGetters([
-      'name'
-    ])
+    ...mapGetters(['name'])
+  },
+  methods: {
+    beforeUpload(file) {
+      console.log(file)
+    },
+    handleSuccess(res) {
+      console.log(res)
+    }
   }
 }
 </script>
