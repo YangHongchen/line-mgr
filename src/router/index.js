@@ -70,7 +70,19 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/cascading',
+    component: Layout,
+    redirect: '/cascading',
+    children: [
+      {
+        path: 'cascading',
+        name: 'Cascading',
+        component: () => import('@/views/cascading/index'),
+        meta: { title: '级联选择器', icon: 'dashboard' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
